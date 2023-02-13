@@ -1,9 +1,11 @@
 import React from "react";
 import { useFormik } from "formik";
+import './index.css';
   
   function App() {
     const formik = useFormik({
       initialValues: {
+        name: "",
         email: "",
         password: "",
       },
@@ -12,6 +14,7 @@ import { useFormik } from "formik";
       },
       validate: (values) => {
         let errors = {};
+        if (!values.name) errors.name = "field required";
         if (!values.email) errors.email = "field required";
         if (!values.password) errors.password = "field required";
         return errors;
@@ -21,6 +24,17 @@ import { useFormik } from "formik";
     return (
       <div>
         <form onSubmit={formik.handleSubmit}>
+          <div>Name:</div>
+          <input 
+            type="text" 
+            name="name" 
+            onChange={formik.handleChange} 
+            value={formik.values.name}/>
+          {formik.errors.name ? (
+           <div style={{color:'red'}}>
+             {formik.errors.name}
+            </div> 
+           ) : null}
           <div>Email:</div>
           <input
             id="emailField"
