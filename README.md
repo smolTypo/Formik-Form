@@ -1,6 +1,6 @@
 # Formik Form
 
-This is an exercise developed during Week 13 of MIT xPro Full Stack Bootcamp
+This is an exercise developed for Module 13 of MIT xPro Full Stack Bootcamp
 
 In this activity, the task is to create a login form with validation using Formik.
 
